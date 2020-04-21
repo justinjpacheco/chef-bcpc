@@ -24,7 +24,7 @@ all : \
 	enable-compute-service \
 	configure-host-aggregates
 
-create: create-virtual-network create-virtual-hosts
+create: generate-chef-databags create-virtual-network create-virtual-hosts
 
 destroy: destroy-virtual-hosts destroy-virtual-network
 
@@ -43,6 +43,10 @@ destroy-virtual-hosts :
 destroy-virtual-network :
 
 	virtual/bin/destroy-virtual-network.sh
+
+generate-chef-databags :
+
+	virtual/bin/generate-chef-databags.py
 
 configure-operator :
 
